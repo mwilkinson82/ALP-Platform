@@ -14,7 +14,6 @@ export default async function HubLayout({ children }: { children: React.ReactNod
     redirect('/auth');
   }
 
-  // NOTE: We do NOT wrap children in <html> or <body> here—
-  // Next.js will already have rendered those in the root layout.
+  // Don’t render <body> here—just render children inside a React fragment
   return <>{children}</>;
 }
