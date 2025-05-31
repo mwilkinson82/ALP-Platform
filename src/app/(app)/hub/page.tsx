@@ -15,14 +15,12 @@ export default function HubPage() {
   const user = useUser();
   const router = useRouter();
 
-  // If session becomes null client-side, redirect to /auth
   useEffect(() => {
     if (session === null) {
       router.push('/auth');
     }
   }, [session, router]);
 
-  // Show Lottie for 2 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
@@ -30,16 +28,17 @@ export default function HubPage() {
     return () => clearTimeout(timer);
   }, []);
 
-  // While loading session, show a full-screen “Loading…”
   if (session === undefined) {
-    return <div className="flex items-center justify-center h-screen">Loading…</div>;
+    return (
+      <div className="flex items-center justify-center w-screen h-screen">
+        Loading…
+      </div>
+    );
   }
 
   return (
-    // Full-screen white background wrapper
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="w-screen h-screen bg-white flex flex-col">
       {showSplash ? (
-        // Splash screen (Lottie) covers entire viewport
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
           <Lottie
             animationData={animationData}
@@ -49,9 +48,7 @@ export default function HubPage() {
           />
         </div>
       ) : (
-        // Main Hub content
-        <div className="min-h-screen bg-white flex flex-col">
-          {/* Header */}
+        <div className="w-screen h-screen bg-white flex flex-col">
           <header className="bg-gray-800 text-white p-4 flex justify-between items-center">
             <h1 className="text-xl font-semibold">ALP Hub</h1>
             <button
@@ -66,7 +63,6 @@ export default function HubPage() {
           </header>
 
           <div className="flex flex-1">
-            {/* Sidebar (hidden on small screens) */}
             <aside className="hidden md:block w-64 bg-gray-100 p-4 space-y-2">
               <button
                 onClick={() => router.push('/hub')}
@@ -88,21 +84,17 @@ export default function HubPage() {
               </button>
             </aside>
 
-            {/* Main content */}
             <main className="flex-1 p-6 relative">
-              {/* Upcoming Intensives Card pinned in top-right */}
               <div className="absolute top-4 right-4">
                 <UpcomingIntensivesCalendar />
               </div>
 
-              {/* Welcome message */}
               <div className="mb-6">
                 <p className="text-gray-600">
                   Welcome, <span className="font-medium">{user?.email}</span>!
                 </p>
               </div>
 
-              {/* Placeholder box */}
               <div className="bg-white shadow rounded p-4">
                 <p>This is your Hub dashboard area.</p>
               </div>
