@@ -10,10 +10,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>ALP Hub</title>
       </Head>
-      {/* 
-        IMPORTANT: We do NOT put any className on <body>.
-        All full-screen/Tailwind styling moves inside the page wrappers.
-      */}
+
+      {/* IMPORTANT: ZERO Tailwind classes on <body> */}
       <body>
         {children}
       </body>
