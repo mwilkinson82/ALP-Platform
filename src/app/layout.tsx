@@ -11,10 +11,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <title>ALP Hub</title>
       </Head>
       {/* 
-        Add `antialiased` here so the server and client body classNames match exactly.
-        We also include "min-h-screen bg-white" so Tailwind’s precomputed classes match.
+        Notice: NO className on <body> at all. 
+        We will move “min-h-screen bg-white” into a wrapper DIV inside children.
       */}
-      <body className="min-h-screen bg-white antialiased">
+      <body>
         {children}
       </body>
     </html>
