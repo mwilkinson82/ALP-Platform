@@ -52,9 +52,8 @@ export default function AuthPage() {
   };
 
   return (
-    // Full-screen gray background wrapper (instead of styling <body>)
+    // Full-screen gray background wrapper
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      {/* White card container */}
       <div className="max-w-md w-full bg-white p-8 rounded shadow">
         <h2 className="text-2xl font-bold mb-6 text-center">Sign In / Sign Up</h2>
         {errorMsg && <p className="text-red-600 text-sm mb-4">{errorMsg}</p>}
