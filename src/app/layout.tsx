@@ -4,17 +4,16 @@ import React from 'react';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    // 1) We put all full-screen/bg-white classes on <html> so it matches both server and client.
+    <html lang="en" className="min-h-screen bg-white antialiased">
       <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>ALP Hub</title>
       </Head>
 
-      {/* IMPORTANT: ZERO Tailwind classes on <body> */}
-      <body>
-        {children}
-      </body>
+      {/* 2) Render <body> with NO className at all */}
+      <body>{children}</body>
     </html>
   );
 }
