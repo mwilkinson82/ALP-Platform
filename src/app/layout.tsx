@@ -11,8 +11,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <title>ALP Hub</title>
       </Head>
       {/* 
-        Notice: NO className on <body> at all. 
-        We will move “min-h-screen bg-white” into a wrapper DIV inside children.
+        We do NOT put Tailwind classes directly on <body> to avoid hydration mismatches.
+        Any full‐screen styling goes inside a wrapping <div> in your pages/components.
       */}
       <body>
         {children}
