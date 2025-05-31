@@ -5,17 +5,17 @@ import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { redirect } from 'next/navigation';
 
 export default async function HubLayout({ children }: { children: React.ReactNode }) {
-  // Create a Supabase client on the server and check the user’s session
+  // Create Supabase client on server:
   const supabaseServer = createServerComponentClient({ cookies });
   const {
     data: { session },
   } = await supabaseServer.auth.getSession();
 
   if (!session) {
-    // If not signed in, redirect to /auth
+    // If no session, send to /auth
     redirect('/auth');
   }
 
-  // Only render the children. Do NOT render <html> or <body> here.
+  // Just render children—DO NOT render <body> or <html> here.
   return <>{children}</>;
 }
