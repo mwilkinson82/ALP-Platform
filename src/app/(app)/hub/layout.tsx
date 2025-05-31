@@ -14,6 +14,6 @@ export default async function HubLayout({ children }: { children: React.ReactNod
     redirect('/auth');
   }
 
-  // Only render children—no <body> or <html> here
+  // Only render children—do NOT render <body> or <html> here
   return <>{children}</>;
 }
