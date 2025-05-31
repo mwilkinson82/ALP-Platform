@@ -4,7 +4,8 @@ import React from 'react';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    // 1) We put all full-screen/bg-white classes on <html> so it matches both server and client.
+    // 1) Put all full-screen / bg-white / antialiased classes on <html>
+    //    so that server and client agree. 
     <html lang="en" className="min-h-screen bg-white antialiased">
       <Head>
         <meta charSet="UTF-8" />
@@ -13,7 +14,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </Head>
 
       {/* 2) Render <body> with NO className at all */}
-      <body>{children}</body>
+      <body>
+        {children}
+      </body>
     </html>
   );
 }
