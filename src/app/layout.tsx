@@ -11,8 +11,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <title>ALP Hub</title>
       </Head>
       {/* 
-        We do NOT put Tailwind classes directly on <body> to avoid hydration mismatches.
-        Any full‐screen styling goes inside a wrapping <div> in your pages/components.
+        IMPORTANT: We do NOT put any className on <body>.
+        All full-screen/Tailwind styling moves inside the page wrappers.
       */}
       <body>
         {children}
