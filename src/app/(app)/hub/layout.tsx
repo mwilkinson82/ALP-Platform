@@ -1,5 +1,4 @@
 // src/app/(app)/hub/layout.tsx
-
 import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { redirect } from 'next/navigation';
@@ -15,5 +14,7 @@ export default async function HubLayout({ children }: { children: React.ReactNod
     redirect('/auth');
   }
 
+  // NOTE: We do NOT wrap children in <html> or <body> here—
+  // Next.js will already have rendered those in the root layout.
   return <>{children}</>;
 }
