@@ -52,11 +52,20 @@ export default function AuthPage() {
   };
 
   return (
-    // Full-screen gray background wrapper
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+    <div 
+      className="
+        w-screen h-screen 
+        bg-gray-100 
+        flex items-center justify-center
+      "
+    >
       <div className="max-w-md w-full bg-white p-8 rounded shadow">
-        <h2 className="text-2xl font-bold mb-6 text-center">Sign In / Sign Up</h2>
-        {errorMsg && <p className="text-red-600 text-sm mb-4">{errorMsg}</p>}
+        <h2 className="text-2xl font-bold mb-6 text-center">
+          Sign In / Sign Up
+        </h2>
+        {errorMsg && (
+          <p className="text-red-600 text-sm mb-4">{errorMsg}</p>
+        )}
         <form className="space-y-4">
           <input
             type="email"
